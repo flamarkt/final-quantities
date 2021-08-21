@@ -1,5 +1,6 @@
 import {extend} from 'flarum/common/extend';
 import OrderTableRow from 'flamarkt/core/forum/components/OrderTableRow';
+import QuantityLabel from 'flamarkt/core/common/components/QuantityLabel';
 import ItemList from 'flarum/common/utils/ItemList';
 
 app.initializers.add('flamarkt-final-quantites', () => {
@@ -16,6 +17,9 @@ app.initializers.add('flamarkt-final-quantites', () => {
             return;
         }
 
-        columns.get('quantity').children.unshift(m('del', original), {tag: '#', children: ' '});
+        columns.get('quantity').children.unshift(m('del', m(QuantityLabel, {
+            value: original,
+            product: this.attrs.line.product(),
+        })), {tag: '#', children: ' '});
     });
 });

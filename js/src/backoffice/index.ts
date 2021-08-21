@@ -1,6 +1,7 @@
 import OrderLineEdit from 'flamarkt/core/backoffice/components/OrderLineEdit';
 import OrderLineEditState from 'flamarkt/core/backoffice/states/OrderLineEditState';
 import OrderShowPage from 'flamarkt/core/backoffice/pages/OrderShowPage';
+import QuantityInput from 'flamarkt/core/common/components/QuantityInput';
 import {extend} from 'flarum/common/extend';
 import Switch from 'flarum/common/components/Switch';
 import ItemList from 'flarum/common/utils/ItemList';
@@ -17,13 +18,13 @@ app.initializers.add('flamarkt-final-quantites', () => {
     });
 
     extend(OrderLineEdit.prototype, 'columns', function (columns: ItemList, line: any, control: any, onchange: any) {
-        columns.add('originalQuantity', m('td.OrderLineEdit-OriginalQuantity', m('input.FormControl', {
-            type: 'number',
+        columns.add('originalQuantity', m('td.OrderLineEdit-OriginalQuantity', m(QuantityInput, {
             value: line.originalQuantity,
-            onchange: (event: Event) => {
-                line.originalQuantity = parseFloat((event.target as HTMLInputElement).value);
+            onchange: (value: number) => {
+                line.originalQuantity = value;
                 onchange();
             },
+            product: line.product,
         })), -50);
 
         columns.add('isFinal', m('td.OrderLineEdit-IsFinal', Switch.component({
