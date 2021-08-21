@@ -1,0 +1,48 @@
+{
+    "name": "flamarkt/final-quantities",
+    "description": "Adjusted final quantities for orders.",
+    "keywords": [
+        "flarum",
+        "flamarkt",
+        "marketplace",
+        "ecommerce",
+        "orders",
+        "quantity"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.0",
+        "flamarkt/core": "^0.1.0"
+    },
+    "authors": [
+        {
+            "name": "Flamarkt",
+            "homepage": "https://flamarkt.org/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/flamarkt/final-quantities/issues",
+        "source": "https://github.com/flamarkt/final-quantities"
+    },
+    "autoload": {
+        "psr-4": {
+            "Flamarkt\\FinalQuantities\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Final Quantities",
+            "category": "flamarkt",
+            "icon": {
+                "name": "fas fa-marker",
+                "backgroundColor": "#266a13",
+                "color": "#fff"
+            }
+        },
+        "flamarkt-backoffice": {
+            "showInBackoffice": true,
+            "hideFromAdmin": true
+        }
+    }
+}

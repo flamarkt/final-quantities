@@ -1,0 +1,7 @@
+flamarkt-final-quantities:
+    backoffice:
+        orders:
+            lines:
+                head:
+                    originalQuantity: Original quantity
+                    isFinal: Is final
