@@ -1,10 +1,10 @@
+import app from 'flarum/forum/app';
 import {extend} from 'flarum/common/extend';
 import OrderTableRow from 'flamarkt/core/forum/components/OrderTableRow';
 import QuantityLabel from 'flamarkt/core/common/components/QuantityLabel';
-import ItemList from 'flarum/common/utils/ItemList';
 
 app.initializers.add('flamarkt-final-quantites', () => {
-    extend(OrderTableRow.prototype, 'columns', function (this: OrderTableRow, columns: ItemList) {
+    extend(OrderTableRow.prototype, 'columns', function (columns) {
         if (!columns.has('quantity')) {
             return;
         }
